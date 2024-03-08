@@ -122,6 +122,11 @@ TEST(argv_help) {
         assert_se(argv_looks_like_help(4, STRV_MAKE("program", "arg1", "arg2", "-h")));
         assert_se(!argv_looks_like_help(2, STRV_MAKE("program", "arg1")));
         assert_se(!argv_looks_like_help(4, STRV_MAKE("program", "arg1", "arg2", "--h")));
+        assert_se(!argv_looks_like_help(3, STRV_MAKE("program", "arg1", "--Help")));
+        assert_se(argv_looks_like_help(5, STRV_MAKE("program", "--help", "arg1", "-h", "--help")));
+        assert_se(argv_looks_like_help(4, STRV_MAKE("progam", "arg1", "--help", "arg2", "-h")));
+        assert_se(!argv_looks_like_help(4, STRV_MAKE("progam", "-H", "arg1")));
+        assert_se(!argv_looks_like_help(4, STRV_MAKE("progam", "-H", "arg1")));
 }
 
 static int intro(void) {

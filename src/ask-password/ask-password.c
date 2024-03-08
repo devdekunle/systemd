@@ -36,7 +36,6 @@ static int help(void) {
         r = terminal_urlify_man("systemd-ask-password", "1", &link);
         if (r < 0)
                 return log_oom();
-
         printf("%1$s [OPTIONS...] MESSAGE\n\n"
                "%3$sQuery the user for a system passphrase, via the TTY or a UI agent.%4$s\n\n"
                "  -h --help           Show this help\n"

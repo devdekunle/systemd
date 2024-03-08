@@ -11,6 +11,7 @@ TEST(str_in_set) {
         assert_se(!STR_IN_SET("X", "x", "y", "z"));
         assert_se(!STR_IN_SET("", "x", "y", "z"));
         assert_se(STR_IN_SET("x", "w", "x"));
+
 }
 
 TEST(strptr_in_set) {
